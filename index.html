@@ -1,0 +1,54 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>It's For You - Now Smile!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Hey!!!</h1>
+    <div class="video-container">
+        <img src="ahatamatar.gif" alt="GIF" width="200" height="200">
+    </div>
+   
+    <div class="question">
+        <p>Have you slept well?</p>
+    </div>
+    <div class="button-container">
+        <button class="button yes" onclick="nextQuestion('yes')">Yes</button>
+        <button class="button no" onclick="nextQuestion('no')">No</button>
+    </div>
+
+    <div class="hamster-container">
+        <img src="hamster.jpg" alt="Hamster" height="100" class="hamster">
+    </div>
+
+    <!-- Add music -->
+    <audio id="music" autoplay loop>
+        <source src="ahatamatarmusic.mp3" type="audio/mp3">
+      </audio>
+      
+      <button class="play-music-button" onclick="playMusic()">Play Music</button>
+      
+      <script>
+        function playMusic() {
+          document.getElementById("music").play();
+        }
+      </script>
+
+    <script>
+        function nextQuestion(answer) {
+            if (answer === 'yes') {
+                window.location.href = 'question2.html'; // Adjust the URL for the next question
+            } else {
+                window.location.href = 'question2.html'; // Adjust the URL for a playful correction
+            }
+        }
+    </script>
+
+    
+</body>
+</html>

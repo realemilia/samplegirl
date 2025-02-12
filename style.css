@@ -1,0 +1,121 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    text-align: center;
+    padding: 20px;
+}
+
+.question {
+    margin: 20px 0;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    animation: float 2s infinite; /* Add animation effect */
+}
+
+.button.no {
+    background-color: #f44336;
+}
+
+.video-container {
+    margin: 20px 0;
+}
+
+.gif-container {
+    margin: 20px 0;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.hamster-container {
+    position: relative;
+    animation: hamster-dance 3s infinite;
+  }
+  
+  .hamster {
+    position: absolute;
+    margin-top: 200px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  @keyframes hamster-dance {
+    0% {
+      transform: scale(1) rotate(0deg);
+    }
+    25% {
+      transform: scale(1.1) rotate(10deg);
+    }
+    50% {
+      transform: scale(0.9) rotate(-10deg);
+    }
+    75% {
+      transform: scale(1.1) rotate(10deg);
+    }
+    100% {
+      transform: scale(1) rotate(0deg);
+    }
+  }
+  
+  .hamster-container:hover .hamster {
+    animation: hamster-spin 1s infinite;
+  }
+  
+  @keyframes hamster-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .play-music-button {
+    background-color: #4CAF50;
+    margin-top: 50px;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out; /* add transition for smooth animation */
+    animation: music-note 0.5s infinite; /* add animation to play continuously */
+  }
+  
+  @keyframes music-note {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }

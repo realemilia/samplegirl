@@ -1,0 +1,64 @@
+<!-- question2.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>It's For You - Now Smile!</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+       .yes {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Really?</h1>
+    <div class="video-container">
+        <img src="sleep.webp" alt="Cat Sleeping" width="200" height="200">
+    </div>
+   
+    <div class="question">
+        <p>Do you look like this while sleeping?</p>
+    </div>
+    <div class="button-container">
+        <button class="button yes" id="yes-btn" onclick="nextQuestion('yes')">Yes</button>
+        <button class="button no" onclick="nextQuestion('no')">No, I'm a cool sleeper!</button>
+    </div>
+
+    <!-- Add music -->
+    <audio id="music" autoplay loop>
+        <source src="ahatamatarmusic.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        let yesFontSize = 16;
+        let noFontSize = 16;
+        function nextQuestion(answer) {
+            if (answer === 'yes') {
+                window.location.href = 'final.html'; // Adjust the URL for the final page
+            } else {
+                yesFontSize += 2;
+                noFontSize += 2;
+                document.getElementById('yes-btn').style.fontSize = `${yesFontSize}px`;
+                document.getElementById('yes-btn').innerHTML = 'Yes, I\'m a sleepyhead!';
+                document.querySelector('.no').style.fontSize = `${noFontSize}px`;
+                document.querySelector('.no').innerHTML = 'No, I\'m a ninja sleeper!';
+                if (noFontSize === 20) {
+                    document.querySelector('.no').innerHTML = 'Just Accept the fact!';
+                } else if (noFontSize === 24) {
+                    document.querySelector('.no').innerHTML = 'hawwww';
+                } else if (noFontSize === 28) {
+                    document.querySelector('.no').innerHTML = 'accept pls dont waste my time';
+                }
+                else if (noFontSize === 32) {
+                    document.querySelector('.no').innerHTML = 'moyemoye';
+                }
+                else if (noFontSize === 36) {
+                    document.querySelector('.no').innerHTML = 'better click yes otherwise you are a puppy';
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -11,6 +11,7 @@ body {
 .button-container {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 20px;
 }
 
@@ -23,15 +24,20 @@ body {
     border-radius: 5px;
     font-size: 16px;
     animation: float 2s infinite ease-in-out; /* Smoother floating effect */
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out, background-color 0.3s ease-in-out;
 }
 
 .button:hover {
     transform: scale(1.1);
+    background-color: #45a049;
 }
 
 .button.no {
     background-color: #f44336;
+}
+
+.button.no:hover {
+    background-color: #d32f2f;
 }
 
 /* ----- Floating Animation ----- */
@@ -44,7 +50,8 @@ body {
 /* ----- Hamster Dance Animation ----- */
 .hamster-container {
     position: relative;
-    animation: hamster-dance 3s infinite ease-in-out;
+    opacity: 0;
+    animation: hamster-fade-in 1s forwards, hamster-dance 3s infinite ease-in-out 1s;
 }
 
 .hamster {
@@ -53,6 +60,11 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+@keyframes hamster-fade-in {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes hamster-dance {
@@ -86,6 +98,7 @@ body {
 
 .play-music-button:hover {
     transform: scale(1.1);
+    background-color: #388E3C;
 }
 
 @keyframes music-note {
@@ -105,7 +118,7 @@ body {
 .letter {
     text-align: center;
     cursor: pointer;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .letter img {
@@ -121,6 +134,7 @@ body {
 
 .letter:hover {
     transform: scale(1.1) rotate(2deg);
+    box-shadow: 0px 0px 15px rgba(76, 175, 80, 0.6);
 }
 
 /* ----- Modal Styling for Letter Content ----- */
@@ -151,11 +165,11 @@ body {
     width: 80%;
     max-width: 600px;
     text-align: center;
-    animation: slide-in 0.3s ease-in-out;
+    animation: slide-up 0.3s ease-in-out;
 }
 
-@keyframes slide-in {
-    from { transform: translateY(-20px); opacity: 0; }
+@keyframes slide-up {
+    from { transform: translateY(20px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
 }
 
@@ -173,7 +187,33 @@ body {
     color: black;
 }
 
-/* Make sure final letter is hidden until unlocked */
+/* ----- Make sure final letter is hidden until unlocked ----- */
 #final-letter {
     display: none;
+}
+
+/* ----- Mobile Optimization ----- */
+@media screen and (max-width: 600px) {
+    .button-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .button {
+        width: 80%;
+        font-size: 14px;
+    }
+
+    .modal-content {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .letter img {
+        width: 120px;
+    }
+
+    .letter p {
+        font-size: 1em;
+    }
 }

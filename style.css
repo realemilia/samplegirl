@@ -1,3 +1,4 @@
+/* ----- General Styling ----- */
 body {
     font-family: Arial, sans-serif;
     background-color: #ffffff;
@@ -6,10 +7,7 @@ body {
     padding: 20px;
 }
 
-.question {
-    margin: 20px 0;
-}
-
+/* ----- Button Styling ----- */
 .button-container {
     display: flex;
     justify-content: center;
@@ -24,78 +22,56 @@ body {
     cursor: pointer;
     border-radius: 5px;
     font-size: 16px;
-    animation: float 2s infinite; /* Add animation effect */
+    animation: float 2s infinite ease-in-out; /* Smoother floating effect */
+    transition: transform 0.2s ease-in-out;
+}
+
+.button:hover {
+    transform: scale(1.1);
 }
 
 .button.no {
     background-color: #f44336;
 }
 
-.video-container {
-    margin: 20px 0;
-}
-
-.gif-container {
-    margin: 20px 0;
-}
-
+/* ----- Floating Animation ----- */
 @keyframes float {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-    100% {
-        transform: translateY(0);
-    }
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
 }
 
+/* ----- Hamster Dance Animation ----- */
 .hamster-container {
     position: relative;
-    animation: hamster-dance 3s infinite;
-  }
-  
-  .hamster {
+    animation: hamster-dance 3s infinite ease-in-out;
+}
+
+.hamster {
     position: absolute;
     margin-top: 200px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  }
-  
-  @keyframes hamster-dance {
-    0% {
-      transform: scale(1) rotate(0deg);
-    }
-    25% {
-      transform: scale(1.1) rotate(10deg);
-    }
-    50% {
-      transform: scale(0.9) rotate(-10deg);
-    }
-    75% {
-      transform: scale(1.1) rotate(10deg);
-    }
-    100% {
-      transform: scale(1) rotate(0deg);
-    }
-  }
-  
-  .hamster-container:hover .hamster {
-    animation: hamster-spin 1s infinite;
-  }
-  
-  @keyframes hamster-spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
+}
 
-  .play-music-button {
+@keyframes hamster-dance {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    25%, 75% { transform: scale(1.1) rotate(10deg); }
+    50% { transform: scale(0.9) rotate(-10deg); }
+}
+
+.hamster-container:hover .hamster {
+    animation: hamster-spin 1s infinite linear;
+}
+
+@keyframes hamster-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ----- Play Music Button ----- */
+.play-music-button {
     background-color: #4CAF50;
     margin-top: 50px;
     color: #fff;
@@ -104,21 +80,19 @@ body {
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
-    transition: all 0.3s ease-in-out; /* add transition for smooth animation */
-    animation: music-note 0.5s infinite; /* add animation to play continuously */
-  }
-  
-  @keyframes music-note {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.1);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
+    transition: all 0.3s ease-in-out;
+    animation: music-note 0.5s infinite ease-in-out;
+}
+
+.play-music-button:hover {
+    transform: scale(1.1);
+}
+
+@keyframes music-note {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
 /* ----- Open When Letters Styling ----- */
 .letters-container {
     display: flex;
@@ -131,7 +105,7 @@ body {
 .letter {
     text-align: center;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: transform 0.3s ease-in-out;
 }
 
 .letter img {
@@ -146,7 +120,7 @@ body {
 }
 
 .letter:hover {
-    transform: scale(1.05);
+    transform: scale(1.1) rotate(2deg);
 }
 
 /* ----- Modal Styling for Letter Content ----- */
@@ -160,16 +134,29 @@ body {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.5);
+    animation: fade-in 0.3s ease-in-out;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto;
+    margin: 10% auto;
     padding: 20px;
-    border: 1px solid #888;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     width: 80%;
     max-width: 600px;
     text-align: center;
+    animation: slide-in 0.3s ease-in-out;
+}
+
+@keyframes slide-in {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
 .close {
@@ -178,9 +165,15 @@ body {
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
+    transition: color 0.2s ease-in-out;
 }
 
 .close:hover,
 .close:focus {
     color: black;
+}
+
+/* Make sure final letter is hidden until unlocked */
+#final-letter {
+    display: none;
 }

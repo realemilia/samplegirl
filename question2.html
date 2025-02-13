@@ -1,4 +1,3 @@
-<!-- question2.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +6,7 @@
     <title>It's For You - Now Smile!</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        /* Mobile-Friendly Button Layout */
         .button-container {
             display: flex;
             justify-content: center;
@@ -16,13 +16,31 @@
         .button {
             transition: all 0.3s ease-in-out;
         }
+
+        /* 📱 Responsive Cat Image */
+        .video-container img {
+            width: 90%; /* Takes up 90% of the screen width */
+            max-width: 300px; /* Prevents it from getting too big on desktop */
+            height: auto; /* Keeps the aspect ratio */
+            display: block;
+            margin: 0 auto; /* Centers it */
+        }
+
+        /* Smooth Page Transition */
+        body {
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .fade-out {
+            opacity: 0;
+        }
     </style>
 </head>
 <body>
     <h1>Really?</h1>
 
     <div class="video-container">
-        <img src="./img/sleep.webp" alt="Cat Sleeping" class="gif-image">
+        <img src="./img/sleep.webp" alt="Cat Sleeping">
     </div>
 
     <div class="question">
@@ -61,29 +79,34 @@
         let noFontSize = 16;
         const noButton = document.getElementById("no-btn");
 
+        const texts = [
+            "No, I'm a ninja sleeper!",
+            "Just Accept the fact!",
+            "hawwww",
+            "accept pls dont waste my time",
+            "moyemoye",
+            "better click yes otherwise you are a puppy"
+        ];
+        let textIndex = 0;
+
         function nextQuestion(answer) {
             if (answer === 'yes') {
-                window.location.href = 'final.html';
+                document.body.classList.add("fade-out"); // Smooth transition
+                setTimeout(() => {
+                    window.location.href = 'final.html';
+                }, 500);
             } else {
-                yesFontSize = Math.min(yesFontSize + 2, 36); // Limit max size
-                noFontSize = Math.min(noFontSize + 2, 36); // Limit max size
-
+                // Increase font size but cap it
+                yesFontSize = Math.min(yesFontSize + 2, 36);
+                noFontSize = Math.min(noFontSize + 2, 36);
                 document.getElementById('yes-btn').style.fontSize = `${yesFontSize}px`;
                 document.getElementById('yes-btn').innerHTML = 'Yes, I\'m a sleepyhead!';
 
                 noButton.style.fontSize = `${noFontSize}px`;
 
-                const texts = [
-                    "No, I'm a ninja sleeper!",
-                    "Just Accept the fact!",
-                    "hawwww",
-                    "accept pls dont waste my time",
-                    "moyemoye",
-                    "better click yes otherwise you are a puppy"
-                ];
-
-                let index = Math.min(noFontSize / 4, texts.length - 1);
-                noButton.innerHTML = texts[index];
+                // Cycle through funny texts
+                textIndex = Math.min(textIndex + 1, texts.length - 1);
+                noButton.innerHTML = texts[textIndex];
             }
         }
     </script>

@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = $_POST['message'];
 
     // Set recipient email address
-    $to = 'youremailhere';
+    $to = 'advaithsnair1@gmail.com';
 
     // Set subject
     $subject = 'Custom Gift Request';
@@ -14,8 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $body = "Name: $name\n\nMessage:\n$message";
 
     // Set headers
-    $headers = "From: your_email@gmail.com\r\n";
-    $headers .= "Reply-To: your_email@gmail.com\r\n";
+    $headers = "From: advaithsnair1@gmail.com\r\n";
+    $headers .= "Reply-To: advaithsnair1@gmail.com\r\n";
     $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
     // Attempt to send email

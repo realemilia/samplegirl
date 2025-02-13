@@ -6,10 +6,10 @@
     <title>Open When Letters</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.2/dist/confetti.browser.min.js"></script>
-
 </head>
 <body>
     <h1>Open When...</h1>
+
     <div class="letters-container">
         <div class="letter" onclick="openLetter('miss')">
             <img src="img/envelope.png" alt="Open when you miss me">
@@ -23,25 +23,28 @@
             <img src="img/envelope.png" alt="Open when you're happy">
             <p>Open when you're happy</p>
         </div>
-        <!-- Add more letters as desired -->
     </div>
 
-    <!-- Modal to display letter content -->
+    <!-- Special Final Letter (Hidden Initially) -->
+    <div class="letters-container">
+        <div id="final-letter" class="letter" onclick="openLetter('final')" style="display: none;">
+            <img src="img/envelope.png" alt="Open when you've opened all letters">
+            <p>Open when you've opened all letters</p>
+        </div>
+    </div>
+
+    <!-- Modal to Display Letter Content -->
     <div id="letterModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <div id="letterContent"></div>
         </div>
     </div>
-    <div id="final-letter" class="letter" onclick="openLetter('final')" style="display: none;">
-    <img src="img/envelope.png" alt="Open when you've opened all letters">
-    <p>Open when you've opened all letters</p>
-</div>
 
+    <!-- Background Music -->
     <audio id="bgMusic" loop>
-    <source src="music/background.mp3" type="audio/mp3">
-</audio>
-
+        <source src="music/ahatamatarmusic.mp3" type="audio/mp3">
+    </audio>
 
     <script src="script.js"></script>
 </body>

@@ -11,7 +11,7 @@ function openLetter(type) {
                 "here’s what you can do: Close your eyes and imagine my arms around you, squeezing you tight."
                 "Can you feel it? That’s because my love is always with you, no matter the distance. ❤️"
                 "And hey, don’t be too sad! Missing me means one thing—next time we meet, you owe me double the hugs, double the kisses, and double the cuddles! 😏 
-                "So, keep this letter safe, because you’ll need it when we reunite! Love you ❤ , my koche ! 💋",
+                "So, keep this letter safe, because you’ll need it when we reunite! Love you ❤ , my koche ! 💋 "
 
                     
         sad: "Ayoo ! Ente koch sad ahnoo..? 😟" 

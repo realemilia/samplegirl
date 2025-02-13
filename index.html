@@ -1,5 +1,3 @@
-<!-- index.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,24 +22,28 @@
             opacity: 0;
         }
 
-        /* Hamster Always Dancing */
+        /* Hamster Positioning */
         .hamster-container {
             position: relative;
-            animation: hamster-dance 2s infinite ease-in-out;
+            margin-top: 20px;
         }
 
-        @keyframes hamster-dance {
-            0%, 100% { transform: scale(1) rotate(0deg); }
-            50% { transform: scale(1.1) rotate(5deg); }
+        .hamster {
+            width: 100px; /* Smaller size for mobile */
+            height: auto;
+            transition: transform 0.3s ease-in-out;
         }
 
+        /* Hamster Dances Only When Hovered */
         .hamster-container:hover .hamster {
-            animation: hamster-spin 0.5s infinite linear;
+            transform: rotate(10deg);
         }
 
-        @keyframes hamster-spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        /* Mobile-specific adjustments */
+        @media (max-width: 600px) {
+            .hamster {
+                width: 80px;
+            }
         }
 
         /* Play Button Enhancement */
@@ -59,7 +61,6 @@
         .playing {
             background-color: #ff6347 !important;
         }
-
     </style>
 </head>
 <body>
@@ -80,7 +81,7 @@
     </div>
 
     <div class="hamster-container">
-        <img src="./img/hamster.jpg" alt="Dancing Hamster" class="hamster">
+        <img src="./img/hamster.jpg" alt="Hamster" class="hamster">
     </div>
 
     <!-- Music Player -->

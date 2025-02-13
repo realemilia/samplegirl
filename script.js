@@ -10,7 +10,7 @@ function openLetter(type) {
                 "But since I haven’t figured out how to bend space and time yet (working on it 😂),"
                 "here’s what you can do: Close your eyes and imagine my arms around you, squeezing you tight."
                 "Can you feel it? That’s because my love is always with you, no matter the distance. ❤️"
-                "And hey, don’t be too sad! Missing me means one thing—next time we meet, you owe me double the hugs, double the kisses, and double the cuddles! 😏 
+                "And hey, don’t be too sad! Missing me means one thing—next time we meet, you owe me double the hugs, double the kisses, and double the cuddles! 😏"
                 "So, keep this letter safe, because you’ll need it when we reunite! Love you ❤ , my koche ! 💋 "
 
                     
@@ -25,7 +25,7 @@ function openLetter(type) {
             "So, let those tears out if needed, then text me i am there for you forever ! Here huggies 🫂🫂🫂 "
 
     
-        happy: "STOP EVERYTHING! 🎉 ALERT! 🚨 Someone’s in a good mood, and I need to know WHY! 👀 Did you win a lottery?
+        happy: "STOP EVERYTHING! 🎉 ALERT! 🚨 Someone’s in a good mood, and I need to know WHY! 👀 Did you win a lottery?"
                "Find money in your pocket? Or did you just think about me? (Obviously, that’s the reason, right? 😂)"
                "Whatever it is, I love seeing you happy! Your happiness is like sunlight—it makes everything brighter, including my life. 🌞"
                "So, no matter what happens, hold onto this feeling, because you deserve all the joy in the universe!"

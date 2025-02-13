@@ -24,8 +24,8 @@
             <p>Open when you're happy</p>
         </div>
         <div class="letter" onclick="openLetter('hung')">
-            <img src="img/envelope5.png" alt="Open when your hungry">
-            <p>Open when your hungry</p>
+            <img src="img/envelope5.png" alt="Open when you're hungry">
+            <p>Open when you're hungry</p>
         </div>
     </div>
 
@@ -38,8 +38,8 @@
     </div>
 
     <!-- Modal to Display Letter Content -->
-    <div id="letterModal" class="modal">
-        <div class="modal-content">
+    <div id="letterModal" class="modal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation();">
             <span class="close" onclick="closeModal()">&times;</span>
             <div id="letterContent"></div>
         </div>

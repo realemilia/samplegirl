@@ -9,46 +9,57 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <h1>Hey!!!</h1>
+
     <div class="video-container">
-        <img src="./img/ahatamatar.gif" alt="GIF" width="200" height="200">
+        <img src="./img/ahatamatar.gif" alt="Cute GIF" class="gif-image">
     </div>
-   
+
     <div class="question">
         <p>Have you slept well?</p>
     </div>
+
     <div class="button-container">
         <button class="button yes" onclick="nextQuestion('yes')">Yes</button>
         <button class="button no" onclick="nextQuestion('no')">No</button>
     </div>
 
     <div class="hamster-container">
-        <img src="./img/hamster.jpg" alt="Hamster" height="100" class="hamster">
+        <img src="./img/hamster.jpg" alt="Dancing Hamster" class="hamster">
     </div>
 
-    <!-- Add music -->
-    <audio id="music" autoplay loop>
+    <!-- Music Player -->
+    <audio id="music" loop>
         <source src="./music/ahatamatarmusic.mp3" type="audio/mp3">
-      </audio>
-      
-      <button class="play-music-button" onclick="playMusic()">Play Music</button>
-      
-      <script>
-        function playMusic() {
-          document.getElementById("music").play();
-        }
-      </script>
+    </audio>
+
+    <button class="play-music-button" onclick="toggleMusic()">Play Music</button>
 
     <script>
+        let isPlaying = false;
+        const music = document.getElementById("music");
+
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                isPlaying = false;
+                document.querySelector(".play-music-button").textContent = "Play Music";
+            } else {
+                music.play();
+                isPlaying = true;
+                document.querySelector(".play-music-button").textContent = "Pause Music";
+            }
+        }
+
         function nextQuestion(answer) {
             if (answer === 'yes') {
-                window.location.href = 'question2.html'; // Adjust the URL for the next question
+                window.location.href = 'question2.html';
             } else {
-                window.location.href = 'question2.html'; // Adjust the URL for a playful correction
+                window.location.href = 'question2.html'; // Change to another page if needed
             }
         }
     </script>
 
-    
 </body>
 </html>

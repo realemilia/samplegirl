@@ -2,8 +2,10 @@ let openedLetters = new Set();
 
 function openLetter(type) {
     const music = document.getElementById('bgMusic');
-    music.volume = 0.5; // Adjust volume if needed
-    music.play();
+    if (music.paused) {
+        music.volume = 0.5; // Adjust volume if needed
+        music.play();
+    }
 
     const letterContent = {
         miss: "Missing cheyuna kuttu!? Potte.. I wish I could teleport to you right now! But since I haven’t figured out how to bend space and time yet (working on it 😂), here’s what you can do: Close your eyes and imagine my arms around you, squeezing you tight. Can you feel it? That’s because my love is always with you, no matter the distance. ❤️ And hey, don’t be too sad! Missing me means one thing—next time we meet, you owe me double the hugs, double the kisses, and double the cuddles! 😏 So, keep this letter safe, because you’ll need it when we reunite! Love you ❤ , my koche ! 💋",
@@ -19,7 +21,7 @@ function openLetter(type) {
 
     openedLetters.add(type);
 
-    // Unlock final letter if ALL (miss, sad, happy, hung) are opened
+    // Unlock final letter only if all four letters are opened
     if (openedLetters.size === 4) {
         document.getElementById('final-letter').style.display = 'block';
     }
@@ -32,7 +34,10 @@ function openLetter(type) {
     document.getElementById('letterModal').style.display = 'block';
 
     if (type === 'final') {
-        if (typeof confetti === "function") confetti(); // Trigger fireworks effect (Only if function exists)
+        // Ensure confetti is loaded before calling
+        if (typeof confetti === "function") {
+            confetti();
+        }
     }
 
     function typeWriter() {
@@ -50,9 +55,15 @@ function closeModal() {
     document.getElementById('letterModal').style.display = 'none';
 }
 
+// Close modal when clicking outside content
 window.onclick = function (event) {
     const modal = document.getElementById('letterModal');
     if (event.target === modal) {
         modal.style.display = 'none';
     }
 };
+
+// Prevent modal from closing when clicking inside the content
+document.querySelector(".modal-content").addEventListener("click", function (event) {
+    event.stopPropagation();
+});

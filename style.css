@@ -119,3 +119,68 @@ body {
       transform: scale(1);
     }
   }
+/* ----- Open When Letters Styling ----- */
+.letters-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.letter {
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.letter img {
+    width: 150px;
+    height: auto;
+}
+
+.letter p {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.letter:hover {
+    transform: scale(1.05);
+}
+
+/* ----- Modal Styling for Letter Content ----- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+}

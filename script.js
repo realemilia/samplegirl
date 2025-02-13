@@ -1,4 +1,7 @@
 function openLetter(type) {
+    const music = document.getElementById('bgMusic');
+    music.volume = 0.5; // Adjust volume if needed
+    music.play();
     const letterContent = {
         miss: "Hey love, I know you're missing me right now. Remember the time we [insert cherished memory]? I'm always with you in spirit. ❤️",
         sad: "My dearest, it's okay to feel sad sometimes. Just know that I'm here for you, always. Here's a little joke to cheer you up: [insert joke]. 😊",

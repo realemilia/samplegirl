@@ -3,108 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Choose Your Gift</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
-            color: #333;
-            text-align: center;
-            padding: 20px;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .gift-options {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
-        .gift-option {
-            text-align: center;
-            margin: 10px;
-            padding: 10px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out;
-        }
-        .gift-option:hover {
-            transform: translateY(-5px);
-        }
-        .gift-option img {
-            max-width: 100%;
-            border-radius: 10px;
-            margin-bottom: 10px;
-        }
-        h1 {
-            font-size: 28px;
-        }
-        .caption {
-            font-style: italic;
-            margin-top: 10px;
-        }
-        .button {
-            padding: 10px 20px;
-            background-color: #4e4e4e;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-        }
-        .button:hover {
-            background-color: #1d1d1d;
-        }
-    </style>
+    <title>Open When Letters</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>So you are awake and you have not dreamt any bad dreams, so I have gifts for you.</h1>
-        <p class="caption">Which gift do you wanna choose??</p>
-        <h2>One of these contains nothing so choose carefully!</h2>
-        
-        <div class="gift-options">
-            <div class="gift-option">
-                <img src="./img/gift1.webp" alt="Gift 1" height="200px">
-                <h1>choooose me</h1>
-                <button class="button" onclick="selectGift('Gift 1')">Choose Gift 1</button>
-            </div>
-            <div class="gift-option">
-                <img src="./img/gift2.png" alt="Gift 2" height="200px">
-                <h1>choose me ?</h1>
-                <button class="button" onclick="selectGift('Gift 2')">Choose Gift 2</button>
-            </div>
-            <div class="gift-option">
-                <img src="./img/gift2.png" alt="Custom Gift" height="200px">
-                <h1>choose me im cute</h1>
-                <button class="button" onclick="selectGift('Custom Gift')">im cute</button>
-            </div>
+    <h1>Open When...</h1>
+    <div class="letters-container">
+        <div class="letter" onclick="openLetter('miss')">
+            <img src="img/envelope.png" alt="Open when you miss me">
+            <p>Open when you miss me</p>
+        </div>
+        <div class="letter" onclick="openLetter('sad')">
+            <img src="img/envelope.png" alt="Open when you're sad">
+            <p>Open when you're sad</p>
+        </div>
+        <div class="letter" onclick="openLetter('happy')">
+            <img src="img/envelope.png" alt="Open when you're happy">
+            <p>Open when you're happy</p>
+        </div>
+        <!-- Add more letters as desired -->
+    </div>
+
+    <!-- Modal to display letter content -->
+    <div id="letterModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="letterContent"></div>
         </div>
     </div>
 
-    <audio id="music" autoplay loop>
-        <source src="./music/ahatamatarmusic.mp3" type="audio/mp3">
-    </audio>
-
-
-    <script>
-        function selectGift(giftName) {
-            if (giftName === 'Custom Gift' || giftName === 'Gift 1') {
-                // Redirect to the contact page for custom gift description
-                alert(`${giftName}: Tell me what you want in the next page`);
-                window.location.href = 'contact.html';
-            } 
-            else if (giftName === 'Gift 2') {
-                // Redirect to the contact page for custom gift description
-                alert(`${giftName}: You got nothing! You Noob! But anyways if you want you can choose between option 1 or 3`);
-            } 
-           
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

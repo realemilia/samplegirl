@@ -5,8 +5,22 @@ function openLetter(type) {
         happy: "Seeing you happy makes my day! Keep shining and spreading your joy. You deserve all the happiness in the world. 🌟",
     };
 
-    document.getElementById('letterContent').innerHTML = letterContent[type];
+    let text = letterContent[type];
+    let index = 0;
+    let speed = 50; // Speed of typing effect
+
+    document.getElementById('letterContent').innerHTML = "";
     document.getElementById('letterModal').style.display = 'block';
+
+    function typeWriter() {
+        if (index < text.length) {
+            document.getElementById('letterContent').innerHTML += text.charAt(index);
+            index++;
+            setTimeout(typeWriter, speed);
+        }
+    }
+
+    typeWriter();
 }
 
 function closeModal() {

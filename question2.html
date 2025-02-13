@@ -7,56 +7,83 @@
     <title>It's For You - Now Smile!</title>
     <link rel="stylesheet" href="style.css">
     <style>
-       .yes {
-            font-size: 16px;
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .button {
+            transition: all 0.3s ease-in-out;
         }
     </style>
 </head>
 <body>
     <h1>Really?</h1>
+
     <div class="video-container">
-        <img src="./img/sleep.webp" alt="Cat Sleeping" width="200" height="200">
+        <img src="./img/sleep.webp" alt="Cat Sleeping" class="gif-image">
     </div>
-   
+
     <div class="question">
         <p>Do you look like this while sleeping?</p>
     </div>
+
     <div class="button-container">
         <button class="button yes" id="yes-btn" onclick="nextQuestion('yes')">Yes</button>
-        <button class="button no" onclick="nextQuestion('no')">No, I'm a cool sleeper!</button>
+        <button class="button no" id="no-btn" onclick="nextQuestion('no')">No, I'm a cool sleeper!</button>
     </div>
 
-    <!-- Add music -->
-    <audio id="music" autoplay loop>
+    <!-- Music Player -->
+    <audio id="music" loop>
         <source src="./music/ahatamatarmusic.mp3" type="audio/mp3">
     </audio>
+    
+    <button class="play-music-button" onclick="toggleMusic()">Play Music</button>
 
     <script>
+        let isPlaying = false;
+        const music = document.getElementById("music");
+
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                isPlaying = false;
+                document.querySelector(".play-music-button").textContent = "Play Music";
+            } else {
+                music.play();
+                isPlaying = true;
+                document.querySelector(".play-music-button").textContent = "Pause Music";
+            }
+        }
+
         let yesFontSize = 16;
         let noFontSize = 16;
+        const noButton = document.getElementById("no-btn");
+
         function nextQuestion(answer) {
             if (answer === 'yes') {
-                window.location.href = 'final.html'; // Adjust the URL for the final page
+                window.location.href = 'final.html';
             } else {
-                yesFontSize += 2;
-                noFontSize += 2;
+                yesFontSize = Math.min(yesFontSize + 2, 36); // Limit max size
+                noFontSize = Math.min(noFontSize + 2, 36); // Limit max size
+
                 document.getElementById('yes-btn').style.fontSize = `${yesFontSize}px`;
                 document.getElementById('yes-btn').innerHTML = 'Yes, I\'m a sleepyhead!';
-                document.querySelector('.no').style.fontSize = `${noFontSize}px`;
-                document.querySelector('.no').innerHTML = 'No, I\'m a ninja sleeper!';
-                if (noFontSize === 20) {
-                    document.querySelector('.no').innerHTML = 'Just Accept the fact!';
-                } else if (noFontSize === 24) {
-                    document.querySelector('.no').innerHTML = 'hawwww';
-                } else if (noFontSize === 28) {
-                    document.querySelector('.no').innerHTML = 'accept pls dont waste my time';
-                }
-                else if (noFontSize === 32) {
-                    document.querySelector('.no').innerHTML = 'moyemoye';
-                }
-                else if (noFontSize === 36) {
-                    document.querySelector('.no').innerHTML = 'better click yes otherwise you are a puppy';
-                }
+
+                noButton.style.fontSize = `${noFontSize}px`;
+
+                const texts = [
+                    "No, I'm a ninja sleeper!",
+                    "Just Accept the fact!",
+                    "hawwww",
+                    "accept pls dont waste my time",
+                    "moyemoye",
+                    "better click yes otherwise you are a puppy"
+                ];
+
+                let index = Math.min(noFontSize / 4, texts.length - 1);
+                noButton.innerHTML = texts[index];
             }
         }
     </script>
